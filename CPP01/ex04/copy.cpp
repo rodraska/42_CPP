@@ -13,15 +13,14 @@ void    ft_copy(std::string filename, std::string s1, std::string s2)
     if (!file2)
         std::cout << "could not open file to write\n";
 
-    char c;
     std::string str;
+    std::string line;
 
-    while (1)
+    while (std::getline(file1, line))
     {
-        file1 >> c;
-        if (file1.eof())
-            break;
-        str.push_back(c);
+        str.append(line);
+        if (!file1.eof())
+            str.push_back('\n');
     }
     //std::cout << str << std::endl;
 
