@@ -1,5 +1,7 @@
 #include "PhoneBook.hpp"
 
+std::string ReadInput(std::string message);
+
 void PhoneBook::AddContact(void)
 {
     Contact contact;
@@ -10,16 +12,11 @@ void PhoneBook::AddContact(void)
     std::string phone;
     std::string dark;
 
-    std::cout << "First Name: ";
-    std::cin >> first;
-    std::cout << "Last Name: ";
-    std::cin >> last;
-    std::cout << "Nickname: ";
-    std::cin >> nick;
-    std::cout << "Phone Number: ";
-    std::cin >> phone;
-    std::cout << "Darkest Secret: ";
-    std::cin >> dark;
+    first = ReadInput("First Name: ");
+    last = ReadInput("Last Name: ");
+    nick = ReadInput("Nickname: ");
+    phone = ReadInput("Phone Number: ");
+    dark = ReadInput("Darkest Secret: ");
 
     contact.NewContact(first, last, nick, phone, dark);
     if (count < 8)
@@ -32,12 +29,18 @@ void PhoneBook::AddContact(void)
     count++;
 }
 
+void FirstRow()
+{
+    std::cout << "     Index|First Name| Last Name|  Nickname|\n";
+}
+
 void PhoneBook::SearchContacts(void)
 {
     int i;
     int index;
 
     i = 0;
+    FirstRow();
     while (i < count && i < 8)
     {
         std::cout << "         " << i << "|";
@@ -45,8 +48,13 @@ void PhoneBook::SearchContacts(void)
         std::cout << "\n";
         i++;
     }
-    std::cout << "index: ";
-    std::cin >> index;
+    try {
+        index = std::stoi(ReadInput("index: "));
+    }
+    catch (const std::exception &ex) {
+        std::cout << "Invalid Index\n";
+        return;
+    }
     if (index < 8 && index < count)
         contacts[index].CoutInfo();
     else

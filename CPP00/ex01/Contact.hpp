@@ -1,3 +1,4 @@
+#pragma once
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
@@ -13,8 +14,8 @@ class Contact
         std::string phone;
         std::string dark;
     public:
-        void    NewContact(std::string a, std::string b, \
-                           std::string c, std::string d, std::string e);
+        void    NewContact(std::string first, std::string last, \
+                           std::string nick, std::string phone, std::string dark);
         void    PrintInfo();
         void    CoutInfo();
     };

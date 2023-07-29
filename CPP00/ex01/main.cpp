@@ -1,25 +1,29 @@
 #include "PhoneBook.hpp"
 
+std::string ReadInput(std::string message)
+{      
+    std::string str;
+    std::cout << message;
+    std::getline(std::cin, str);
+    
+    return (str);
+}
+
 int main(void)
 {
     std::string input;
     PhoneBook book;
-    int       count;
 
-    count = 0;
-    while (input.compare("EXIT") != 0)
+    while (1)
     {
-        std::cout << "input: ";
-        std::cin >> input;
-        if (!input.compare("ADD"))
-        {
+        input = ReadInput("input: ");
+        if (!input.compare("EXIT"))
+            break;
+        else if (!input.compare("ADD"))
             book.AddContact();
-            count++;
-        }
-            
         else if (!input.compare("SEARCH"))
-        {
             book.SearchContacts();
-        }
+        else
+            std::cout << "Invalid Input\n";
     }
 }

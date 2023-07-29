@@ -1,13 +1,13 @@
 #include "Contact.hpp"
 
-void    Contact::NewContact(std::string a, std::string b, \
-                            std::string c, std::string d, std::string e)
+void    Contact::NewContact(std::string first, std::string last, \
+                            std::string nick, std::string phone, std::string dark)
 {
-    first = a;
-    last = b;
-    nick = c;
-    phone = d;
-    dark = e;
+    this->first = first;
+    this->last = last;
+    this->nick = nick;
+    this->phone = phone;
+    this->dark = dark;
 };
 
 void    DisplayInfo(std::string str)
@@ -46,9 +46,14 @@ void Contact::PrintInfo(void)
 
 void Contact::CoutInfo(void)
 {
+    std::cout << "First Name: ";
     std::cout << this->first << std::endl;
+    std::cout << "Last Name: ";
     std::cout << this->last << std::endl;
+    std::cout << "Nickname: ";
     std::cout << this->nick << std::endl;
+    std::cout << "Phone Number: ";
     std::cout << this->phone << std::endl;
+    std::cout << "Darkest Secret: ";
     std::cout << this->dark << std::endl;
 }

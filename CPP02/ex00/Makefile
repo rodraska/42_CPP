@@ -1,15 +1,13 @@
-NAME = zombie
+NAME = Fixed
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 #-fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 RM = rm -f
 
 SRCS = main.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
-		Zombie.cpp
+		Fixed.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
