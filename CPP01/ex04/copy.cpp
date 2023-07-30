@@ -11,7 +11,7 @@ void    ft_copy(std::string filename, std::string s1, std::string s2)
 
     file2.open(filename.append(".replace"), std::ios::out);
     if (!file2)
-        std::cout << "could not open file to write\n";
+        std::cout << "Could not write to file\n";
 
     std::string str;
     std::string line;
@@ -22,7 +22,6 @@ void    ft_copy(std::string filename, std::string s1, std::string s2)
         if (!file1.eof())
             str.push_back('\n');
     }
-    //std::cout << str << std::endl;
 
     int i = 0;
     std::string nova;
@@ -39,10 +38,8 @@ void    ft_copy(std::string filename, std::string s1, std::string s2)
             i++;
         }
     }
-
     file2 << nova; 
-    //std::cout << nova << std::endl;
+
     file1.close();
     file2.close();
-
 }

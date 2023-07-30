@@ -40,14 +40,12 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits(void) const
 {
-    //std::cout << "getRawBits member function called\n";
     return (this->value);
 }
 
 void Fixed::setRawBits(int const raw)
 {
     this->value = raw;
-    //std::cout << "setRawBits member function called\n";
 }
 
 float Fixed::toFloat(void) const

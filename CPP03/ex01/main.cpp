@@ -7,7 +7,7 @@ int main()
     ScavTrap z (y);
 
     y.setAttack(10);
-    y.attack("Alberta");
+    y.attack("Xavier");
     x.takeDamage(10);
     x.beRepaired(5);
     z.guardGate();

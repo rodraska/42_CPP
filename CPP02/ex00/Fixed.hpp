@@ -11,7 +11,7 @@ class Fixed
         static const int frac_bits;
     public:
         Fixed();
-        Fixed(Fixed &f);
+        Fixed(const Fixed &f);
         Fixed & operator = (const Fixed &f);
         ~Fixed();
         int getRawBits(void) const;
