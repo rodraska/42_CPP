@@ -1,11 +1,11 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    ScavTrap x ("Xavier");
-    ScavTrap y ("Yasuo");
-    ScavTrap w = x;
-    ScavTrap z (y);
+    FragTrap x ("Xavier");
+    FragTrap y ("Yasuo");
+    FragTrap w = x;
+    FragTrap z (y);
 
     y.setAttack(10);
     y.attack("Xavier");
@@ -15,7 +15,7 @@ int main()
     w.attack("z");
     z.takeDamage(3);
     z.beRepaired(4);
-    z.guardGate();
+    z.highFivesGuys();
 
     return (0);
 }

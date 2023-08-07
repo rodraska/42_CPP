@@ -2,11 +2,8 @@
 
 int main()
 {
-    std::string name1 = "Alberta";
-    std::string name2 = "Bernie";
-
-    ClapTrap a(name1);
-    ClapTrap b(name2);
+    ClapTrap a("Alberta");
+    ClapTrap b("Bernie");
     ClapTrap c (b);
 
     b.setAttack(10);
