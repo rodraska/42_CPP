@@ -14,7 +14,7 @@ class ClapTrap
         int atk_pts;
     public:
         ClapTrap(); //Default Constructor
-        ClapTrap(std::string &name); //Name Constructor
+        ClapTrap(const std::string &name); //Name Constructor
         ClapTrap(ClapTrap &c); //Copy Constructor
         ClapTrap & operator = (const ClapTrap &c); //Copy Assignment Operator
         ~ClapTrap(); //Destructor

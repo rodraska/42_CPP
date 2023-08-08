@@ -3,7 +3,7 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap: virtual ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
     protected:
     public:

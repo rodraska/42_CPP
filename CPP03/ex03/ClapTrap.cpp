@@ -8,7 +8,7 @@ ClapTrap::ClapTrap()
     this->atk_pts = 0;
 }
 
-ClapTrap::ClapTrap(std::string &name)
+ClapTrap::ClapTrap(const std::string &name)
 {
     std::cout << "Name constructor called\n";
     this->name = name;

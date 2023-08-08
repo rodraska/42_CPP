@@ -2,5 +2,5 @@
 
 DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
-    std::cout << ""
+    std::cout << "DiamondTrap Default Constructor called\n";
 }
