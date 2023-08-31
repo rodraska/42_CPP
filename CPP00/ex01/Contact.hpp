@@ -16,8 +16,8 @@ class Contact
     public:
         void    NewContact(std::string first, std::string last, \
                            std::string nick, std::string phone, std::string dark);
-        void    PrintInfo();
-        void    CoutInfo();
-    };
+        void    PrintSmall();
+        void    PrintBig();
+};
 
 #endif

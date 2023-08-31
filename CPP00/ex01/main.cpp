@@ -3,6 +3,7 @@
 std::string ReadInput(std::string message)
 {      
     std::string str;
+
     std::cout << message;
     std::getline(std::cin, str);
     
@@ -24,6 +25,6 @@ int main(void)
         else if (!input.compare("SEARCH"))
             book.SearchContacts();
         else
-            std::cout << "Invalid Input\n";
+            std::cout << "Invalid Input" << std::endl;
     }
 }

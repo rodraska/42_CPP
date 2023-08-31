@@ -8,19 +8,17 @@ int main(int ac, char **av)
 
     i = 0;
     if (ac == 1)
-    {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    }
     while (++i < ac)
     {
         j = -1;
         while(av[i][++j])
         {
             if (av[i][j] >= 97 && av[i][j] <= 122)
-                av[i][j] -= 32;
+                av[i][j] = toupper(av[i][j]);
             std::cout << av[i][j];
         }
         
     }
-    std::cout << "\n";
+    std::cout << std::endl;
 }

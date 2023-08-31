@@ -10,14 +10,12 @@ void    Contact::NewContact(std::string first, std::string last, \
     this->dark = dark;
 };
 
-void    DisplayInfo(std::string str)
+void    PrintArgument(std::string str)
 {
     int len;
     int i;
 
-    len = 0;
-    while (str[len])
-        len++;
+    len = str.size();
     if (len > 10)
     {
         i = -1;
@@ -27,24 +25,21 @@ void    DisplayInfo(std::string str)
     }
     else
     {
-        while(len < 10)
-        {
+        while(len++ < 10)
             std::cout << " ";
-            len++;
-        }
         std::cout << str;  
     }
     std::cout << "|";
 }
 
-void Contact::PrintInfo(void)
+void Contact::PrintSmall(void)
 {
-    DisplayInfo(this->first);
-    DisplayInfo(this->last);
-    DisplayInfo(this->nick);
+    PrintArgument(this->first);
+    PrintArgument(this->last);
+    PrintArgument(this->nick);
 }
 
-void Contact::CoutInfo(void)
+void Contact::PrintBig(void)
 {
     std::cout << "First Name: ";
     std::cout << this->first << std::endl;

@@ -18,6 +18,7 @@ Fixed::Fixed(float const value)
 {
     std::cout << "Float constructor called\n";
     this->setRawBits(roundf(value * pow(2, this->frac_bits)));
+    this->value << (1 * frac_bits)
 }
 
 Fixed::Fixed(Fixed const &f)

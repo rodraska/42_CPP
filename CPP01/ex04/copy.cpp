@@ -5,16 +5,16 @@ void    ft_copy(std::string filename, std::string s1, std::string s2)
     std::fstream file1;
     std::fstream file2;
 
+    std::string str;
+    std::string line;
+
     file1.open(filename, std::ios::in);
     if (!file1)
-        std::cout << "Could not read from file\n";
+        std::cout << "Could not read from file" << std::endl;
 
     file2.open(filename.append(".replace"), std::ios::out);
     if (!file2)
-        std::cout << "Could not write to file\n";
-
-    std::string str;
-    std::string line;
+        std::cout << "Could not write to file" << std::endl;
 
     while (std::getline(file1, line))
     {
@@ -22,7 +22,7 @@ void    ft_copy(std::string filename, std::string s1, std::string s2)
         if (!file1.eof())
             str.push_back('\n');
     }
-
+    
     int i = 0;
     std::string nova;
     while (i < str.length())

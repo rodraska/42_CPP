@@ -2,7 +2,7 @@ NAME = zombie
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -std=c++98 #-fsanitize=address
 
 RM = rm -f
 

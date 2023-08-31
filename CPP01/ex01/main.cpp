@@ -1,7 +1,5 @@
 #include "Zombie.hpp"
 
-Zombie *zombieHorde(int n, std::string name);
-
 int main(void)
 {
     Zombie *group = zombieHorde(5, "Josefina");
