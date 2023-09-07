@@ -10,12 +10,18 @@ void    ft_copy(std::string filename, std::string s1, std::string s2)
 
     file1.open(filename, std::ios::in);
     if (!file1)
+    {
         std::cout << "Could not read from file" << std::endl;
+        return ;
+    }
 
     file2.open(filename.append(".replace"), std::ios::out);
     if (!file2)
+    {
         std::cout << "Could not write to file" << std::endl;
-
+        return ;
+    }
+        
     while (std::getline(file1, line))
     {
         str.append(line);

@@ -7,6 +7,6 @@ int main(int ac, char **av)
     if (ac == 4)
         ft_copy(av[1], av[2], av[3]);
     else
-        std::cout << "Invalid Input\n";
+        std::cout << "Invalid Input" << std::endl;
 
 }

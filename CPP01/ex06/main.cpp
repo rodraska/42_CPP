@@ -8,7 +8,7 @@ int main(int ac, char **av)
         harl.complain(av[1]);
     }
     else
-        std::cout << "Invalid Input\n";
+        std::cout << "Invalid Input" << std::endl;
 
     return (0);
 }
