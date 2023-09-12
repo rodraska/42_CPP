@@ -4,31 +4,31 @@ const int Fixed::frac_bits = 8;
 
 Fixed::Fixed()
 {
-    std::cout << "Default constructor called\n";
+    std::cout << "Default constructor called" << std::endl;
     this->value = 0;
 }
 
 Fixed::Fixed(const Fixed &f)
 {
-    std::cout << "Copy constructor called\n";
+    std::cout << "Copy constructor called" << std::endl;;
     this->setRawBits(f.getRawBits());
 }
 
 Fixed & Fixed::operator = (const Fixed &f)
 {
-    std::cout << "Copy assignment operator called\n";
+    std::cout << "Copy assignment operator called" << std::endl;;
     this->setRawBits(f.getRawBits());
     return (*this);
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called\n";
+    std::cout << "Destructor called" << std::endl;;
 }
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called\n";
+    std::cout << "getRawBits member function called" << std::endl;;
     return (this->value);
 }
 

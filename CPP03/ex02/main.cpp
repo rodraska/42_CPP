@@ -17,5 +17,7 @@ int main()
     z.beRepaired(4);
     z.highFivesGuys();
 
+    std::cout << x;
+
     return (0);
 }

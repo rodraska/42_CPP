@@ -4,7 +4,10 @@ int main()
 {
     ClapTrap a("Alberta");
     ClapTrap b("Bernie");
-    ClapTrap c (b);
+    ClapTrap c (a);
+    ClapTrap d;
+
+    d = b;
 
     b.setAttack(10);
     b.attack("Alberta");
