@@ -35,7 +35,7 @@ ScavTrap & ScavTrap::operator = (const ScavTrap &s)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap Destructor called\n";
+    std::cout << "ScavTrap Destructor called" << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target)

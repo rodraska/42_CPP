@@ -1,3 +1,4 @@
+#pragma once
 #ifndef SCAV_TRAP_HPP
 # define SCAV_TRAP_HPP
 
@@ -12,7 +13,7 @@ class ScavTrap: virtual public ClapTrap
         ScavTrap(const ScavTrap &s);
         ScavTrap & operator = (const ScavTrap &s);
         ~ScavTrap();
-        void attack(const std::string &target);
+        virtual void attack(const std::string &target);
         void guardGate();
 
 };

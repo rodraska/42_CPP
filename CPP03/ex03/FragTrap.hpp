@@ -1,3 +1,4 @@
+#pragma once
 #ifndef FRAG_TRAP_HPP
 # define FRAG_TRAP_HPP
 
@@ -12,7 +13,7 @@ class FragTrap: virtual public ClapTrap
         FragTrap(const FragTrap &f);
         FragTrap & operator = (const FragTrap &f);
         ~FragTrap();
-        void attack(const std::string &target);
+        virtual void attack(const std::string &target);
         void highFivesGuys(void);
 };
 
