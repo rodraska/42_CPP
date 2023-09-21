@@ -45,11 +45,21 @@ int main()
         std::cout << "               THIRD MAIN              " << std::endl;
         std::cout << "---------------------------------------" << std::endl;
         
-        Dog const dog;
+        Dog dog1;
+        Dog dog2 (dog1);
+        Dog dog3 = dog1;
 
-        dog.makeSound();
+        dog1.makeSound();
+        dog2.makeSound();
+        dog3.makeSound();
 
-        return (0);
+        Cat cat1;
+        Cat cat2 (cat1);
+        Cat cat3 = cat1;
+
+        cat1.makeSound();
+        cat2.makeSound();
+        cat3.makeSound();
     }
 
     return (0);
