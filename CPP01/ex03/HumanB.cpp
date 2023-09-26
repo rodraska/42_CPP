@@ -2,10 +2,12 @@
 
 HumanB::HumanB(std::string name) : name(name)
 {
+    this->weapon = NULL;
 }
 
 void HumanB::attack()
 {
+    std::cout << &(this->weapon) << std::endl;
     if (!this->weapon)
         std::cout << "You're out of bullets soldier" << std::endl;
     else
