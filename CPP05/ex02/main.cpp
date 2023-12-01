@@ -7,8 +7,8 @@ int main()
 {
     {
         std::cout << "---------------------------------------------" << std::endl;
-        std::cout << "Bob signs and executes PresidentialPardonForm" << std::endl;
-        std::cout << "---------------------------------------------" << std::endl;
+        std::cout << "PresidentialPardonForm #1" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl << std::endl;
         try
         {
             Bureaucrat Bob("Bob", 1);
@@ -22,9 +22,9 @@ int main()
         }
     }
     {
-        std::cout << "---------------------------------------------------" << std::endl;
-        std::cout << "Bob signs but cannot execute PresidentialPardonForm" << std::endl;
-        std::cout << "---------------------------------------------------" << std::endl;
+        std::cout << std::endl << "---------------------------------------------" << std::endl;
+        std::cout << "PresidentialPardonForm #2" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl << std::endl;
         try
         {
             Bureaucrat Bob("Bob", 140);
@@ -38,9 +38,9 @@ int main()
         }
     }
     {
-        std::cout << "--------------------" << std::endl;
-        std::cout << "Bob cannot sign form" << std::endl;
-        std::cout << "--------------------" << std::endl;
+        std::cout << std::endl << "---------------------------------------------" << std::endl;
+        std::cout << "PresidentialPardonForm #3" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl << std::endl;
         try
         {
             Bureaucrat Bob("Bob", 150);
@@ -54,9 +54,9 @@ int main()
         }
     }
     {
-        std::cout << "---------------------------------------------" << std::endl;
-        std::cout << "Bob signs and executes RobotomyRequestForm" << std::endl;
-        std::cout << "---------------------------------------------" << std::endl;
+        std::cout << std::endl << "---------------------------------------------" << std::endl;
+        std::cout << "RobotomyRequestForm #1" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl << std::endl;
         try
         {
             Bureaucrat Bob("Bob", 1);
@@ -70,9 +70,9 @@ int main()
         }
     }
     {
-        std::cout << "---------------------------------------------------" << std::endl;
-        std::cout << "Bob signs but cannot execute RobotomyRequestForm" << std::endl;
-        std::cout << "---------------------------------------------------" << std::endl;
+        std::cout << std::endl << "---------------------------------------------" << std::endl;
+        std::cout << "RobotomyRequestForm #2" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl << std::endl;
         try
         {
             Bureaucrat Bob("Bob", 70);
@@ -86,9 +86,9 @@ int main()
         }
     }
     {
-        std::cout << "--------------------" << std::endl;
-        std::cout << "Bob cannot sign RobotomyRequestForm" << std::endl;
-        std::cout << "--------------------" << std::endl;
+        std::cout << std::endl << "---------------------------------------------" << std::endl;
+        std::cout << "RobotomyRequestForm #3" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl << std::endl;
         try
         {
             Bureaucrat Bob("Bob", 150);
@@ -102,9 +102,9 @@ int main()
         }
     }
     {
-        std::cout << "---------------------------------------------" << std::endl;
-        std::cout << "Bob signs and executes ShrubberyCreationForm" << std::endl;
-        std::cout << "---------------------------------------------" << std::endl;
+        std::cout << std::endl << "---------------------------------------------" << std::endl;
+        std::cout << "ShrubberyCreationForm #1" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl << std::endl;
         try
         {
             Bureaucrat Bob("Bob", 1);
@@ -118,9 +118,9 @@ int main()
         }
     }
     {
-        std::cout << "---------------------------------------------------" << std::endl;
-        std::cout << "Bob signs but cannot execute ShrubberyCreationForm" << std::endl;
-        std::cout << "---------------------------------------------------" << std::endl;
+        std::cout << std::endl << "---------------------------------------------" << std::endl;
+        std::cout << "ShrubberyCreationForm #2" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl << std::endl;
         try
         {
             Bureaucrat Bob("Bob", 20);
@@ -134,9 +134,9 @@ int main()
         }
     }
     {
-        std::cout << "--------------------" << std::endl;
-        std::cout << "Bob cannot sign ShrubberyCreationForm" << std::endl;
-        std::cout << "--------------------" << std::endl;
+        std::cout << std::endl << "---------------------------------------------" << std::endl;
+        std::cout << "ShrubberyCreationForm #3" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl << std::endl;
         try
         {
             Bureaucrat Bob("Bob", 150);

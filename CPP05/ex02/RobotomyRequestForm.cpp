@@ -33,5 +33,13 @@ std::string RobotomyRequestForm::getTarget() const
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
     this->checkExecute(executor);
-    std::cout << this->_target << "BRRRRR BRRRRR BRRRRR" << std::endl;
+    
+    srand(static_cast<unsigned int>(time(NULL)));
+    int rand_nbr = rand() % 100 + 1;
+
+    std::cout << "BRRRRR BRRRRR BRRRRR" << std::endl;
+    if (rand_nbr <= 50)
+        std::cout << _target << " has been robotomized" << std::endl;
+    else
+        std::cout << "The robotomy on " << _target << " has failed"<< std::endl;
 }

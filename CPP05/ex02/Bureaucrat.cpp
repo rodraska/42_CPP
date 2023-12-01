@@ -79,8 +79,8 @@ void    Bureaucrat::executeForm(const AForm &form)
         std::cout << "Form is not signed" << std::endl;
     if (this->_grade > form.getSignGrade())
         std::cout << _name << " cannot sign form because his grade is too low" << std::endl;
-    form.execute(*this);
     std::cout << _name << " executed " << form.getName() << std::endl;
+    form.execute(*this);
 }
 
 std::ostream & operator << (std::ostream &os, const Bureaucrat &obj)

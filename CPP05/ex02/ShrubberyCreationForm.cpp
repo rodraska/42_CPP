@@ -33,5 +33,23 @@ std::string ShrubberyCreationForm::getTarget() const
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
     this->checkExecute(executor);
-    std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+    
+    std::ofstream out_file;
+    std::string file_name = _target + "_shrubbery";
+    out_file.open(file_name.c_str());
+
+    if (out_file.is_open())
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            out_file << "    *    " << std::endl;
+            out_file << "   / \\   " << std::endl;
+            out_file << "  /   \\  " << std::endl;
+            out_file << " /     \\ " << std::endl;
+            out_file << "/_______\\" << std::endl;
+        }
+        out_file.close();
+    }
+    else
+        std::cout << "Unable to open file" << std::endl;
 }
