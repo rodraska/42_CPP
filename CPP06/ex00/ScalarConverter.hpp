@@ -5,11 +5,12 @@
 #include <iostream>
 #include <sstream>
 
-void checkType(std::string str);
 void convertInt(std::string str);
 void convertString(std::string str);
 void convertDouble(std::string str);
 void convertFloat(std::string str);
+void converChar(std::string str);
+void printChar(std::string str);
 
 class ScalarConverter
 {
