@@ -25,10 +25,10 @@ int checkOperator(const char& c)
 
 void RPN::Parse()
 {
-    for (int i = 0; i < _input.length(); i++)
+    for (size_t i = 0; i < (size_t)_input.length(); i++)
     {
         if (checkDigit(_input[i]))
-            _stk.push(_input[i]);
+            _stk.push(_input[i] - 48);
     }
 }
 
