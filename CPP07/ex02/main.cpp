@@ -3,6 +3,10 @@
 int main(void)
 {
     {
+        Array<int> arr;
+        std::cout << arr.size() << std::endl;
+    }
+    {
         Array<int> arr(5);
         for (int i = 0; i < 5; i++)
             arr[i] = i;
