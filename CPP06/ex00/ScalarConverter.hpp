@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 void convertInt(std::string str);
 void convertString(std::string str);
@@ -11,6 +12,12 @@ void convertDouble(std::string str);
 void convertFloat(std::string str);
 void converChar(std::string str);
 void printChar(std::string str);
+
+void test_char(std::string str);
+void test_int(std::string str);
+void test_double(std::string str);
+void test_float(std::string str);
+
 
 class ScalarConverter
 {

@@ -18,16 +18,3 @@ int main(void)
     
     return (0);
 }
-
-/* int main(void)
-{
-    int i = 42;
-    int *ptr = &i;
-    uintptr_t intptr = reinterpret_cast<uintptr_t>(ptr);
-    Data* data_ptr = reinterpret_cast<Data*>(intptr);
-
-    std::cout << "i: " << i << std::endl;
-    std::cout << "ptr: " << ptr << std::endl;
-    std::cout << "intptr: " << intptr << std::endl;
-    std::cout << "data_ptr: " << data_ptr << std::endl;
-} */

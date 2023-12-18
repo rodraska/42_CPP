@@ -44,33 +44,67 @@ void ScalarConverter::convert(std::string str)
     }
 
     if (p == 0 && f == 0 && s == 0)
-        convertInt(str);
+        test_int(str);
     else if ((s == 1 || (f == 1 && d > 8)) && str.size() == 1)
-        converChar(str);
+        test_char(str);
     else if (s == 1 || (f == 1 && d > 8))
         convertString(str);
     else if (p == 1 && f == 0)
-        convertDouble(str);
+        test_double(str);
     else if (p == 1 && f == 1)
-        convertFloat(str);
+        test_float(str);
 }
 
-void converChar(std::string str)
+void test_char(std::string str)
 {
-    int _int = static_cast<int>(str[0]);
+    char _char;
 
-    std::cout << "char: " << str << std::endl;
+    std::istringstream iss(str);
+    iss >> _char;
+    std::cout << "char: '" << _char << "'" << std::endl;
+    std::cout << "int: " << static_cast<int>(_char) << std::endl;
+    std::cout << std::fixed << std::setprecision(1);
+    std::cout << "float: " << static_cast<float>(_char) << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(_char) << std::endl;
+}
+
+void test_int(std::string str)
+{   
+    int _int;
+
+    std::istringstream iss(str);
+    iss >> _int;
+    std::cout << "char: '" << static_cast<char>(_int) << "'" << std::endl;
     std::cout << "int: " << _int << std::endl;
-    std::cout << "float: " << _int << ".0f" << std::endl;
-    std::cout << "double: " << _int << ".0" << std::endl;
+    std::cout << std::fixed << std::setprecision(1);
+    std::cout << "float: " << static_cast<float>(_int) << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(_int) << std::endl;
 }
 
-void convertInt(std::string str)
+void test_float(std::string str)
 {
-    printChar(str);
-    std::cout << "int: " << str << std::endl;
-    std::cout << "float: " << str + ".0f" << std::endl;
-    std::cout << "double: " << str + ".0" << std::endl;
+    float _float;
+
+    std::istringstream iss(str);
+    iss >> _float;
+    std::cout << "char: '" << static_cast<char>(_float) << "'" << std::endl;
+    std::cout << "int: " << static_cast<int>(_float) << std::endl;
+    std::cout << std::fixed << std::setprecision(1);
+    std::cout << "float: " << _float << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(_float) << std::endl;
+}
+
+void test_double(std::string str)
+{
+    double _double;
+
+    std::istringstream iss(str);
+    iss >> _double;
+    std::cout << "char: '" << static_cast<char>(_double) << "'" << std::endl;
+    std::cout << "int: " << static_cast<int>(_double) << std::endl;
+    std::cout << std::fixed << std::setprecision(1);
+    std::cout << "float: " << static_cast<float>(_double) << "f" << std::endl;
+    std::cout << "double: " << _double << std::endl;
 }
 
 void convertString(std::string str)
@@ -78,50 +112,24 @@ void convertString(std::string str)
     (void)str;
     std::cout << "char: impossible" << std::endl;
     std::cout << "int: impossible" << std::endl;
-    if (!str.compare("nan"))
+    if (!str.compare("nan") || !str.compare("nanf"))
     {
         std::cout << "float: nanf" << std::endl;
         std::cout << "double: nan" << std::endl;
+    }
+    else if(!str.compare("-inff") || !str.compare("-inff"))
+    {
+        std::cout << "float: -inff" << std::endl;
+        std::cout << "double: -inf" << std::endl;
+    }
+    else if(!str.compare("+inff") || !str.compare("+inf"))
+    {
+        std::cout << "float: +inff" << std::endl;
+        std::cout << "double: +inf" << std::endl;
     }
     else
     {
         std::cout << "float: impossible" << std::endl;
         std::cout << "double: impossible" << std::endl;
     }
-}
-
-void convertDouble(std::string str)
-{
-    int i = 0;
-    while (str[i] != '.')
-        i++;
-    printChar(str.substr(0, i));
-    std::cout << "int: " << str.substr(0, i) << std::endl;
-    std::cout << "float: " << str + "f" << std::endl;
-    std::cout << "double: " << str << std::endl;
-}
-
-void convertFloat(std::string str)
-{
-    int i = 0;
-    while (str[i] != '.')
-        i++;
-    printChar(str.substr(0, i));
-    std::cout << "int: " << str.substr(0, i) << std::endl;
-    std::cout << "float: " << str << std::endl;
-    std::cout << "double: " << str.substr(0, str.size() - 1) << std::endl;
-}
-
-void printChar(std::string str)
-{
-    int _int;
-
-    std::istringstream iss(str);
-    iss >> _int;
-
-
-    if (_int > 0)
-        std::cout << "char: '" << static_cast<char>(_int) << "'" << std::endl;
-    else
-        std::cout << "char: " << "Non displayable" << std::endl;
 }

@@ -17,10 +17,10 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 %.o: %.cpp
-	$(CC) $(CCFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
