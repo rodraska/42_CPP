@@ -23,20 +23,35 @@ int checkOperator(const char& c)
     return (0);
 }
 
-void RPN::Parse()
+void RPN::Calc()
 {
+    int first;
+    int second;
+
     for (size_t i = 0; i < (size_t)_input.length(); i++)
     {
         if (checkDigit(_input[i]))
             _stk.push(_input[i] - 48);
+        else if (checkOperator(_input[i]))
+        {
+            second = _stk.top();
+            _stk.pop();
+            first = _stk.top();
+            _stk.pop();
+            if (_input[i] == 45)
+                _stk.push(first - second);
+            else if (_input[i] == 43)
+                _stk.push(first + second);
+            else if (_input[i] == 42)
+                _stk.push(first * second);
+            else if (_input[i] == 47)
+                _stk.push(first / second);
+        }
+        else if (_input[i] != 32)
+        {
+            std::cout << "Error" << std::endl;
+            return ;
+        }
     }
-}
-
-void RPN::printStack()
-{
-    while (_stk.size())
-    {
-        std::cout << _stk.top() << std::endl;
-        _stk.pop();
-    }
+    std::cout << _stk.top() << std::endl;
 }

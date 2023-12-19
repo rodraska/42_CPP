@@ -14,8 +14,7 @@ class RPN
         RPN(char* input);
         ~RPN();
 
-        void Parse();
-        void printStack();
+        void Calc();
 };
 
 #endif
