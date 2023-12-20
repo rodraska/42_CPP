@@ -10,16 +10,19 @@
 class PmergeMe
 {
     private:
-        std::list<int> X;
-        std::list<int[2]> pairs;
-        std::list<int> X2;
-        std::list<int> S;
-        size_t n;
     public:
+        std::list<int> X;
+        std::list<std::pair<int, int> > pairs;
+        size_t n;
+        PmergeMe();
+        ~PmergeMe();
         void Parse(int ac, char** av);
-        void Print(std::list<int> lst);
-        void Divide();
-        std::list<int> getList(std::string str);
+        void Divide(std::list<int> lst);
+        void Swap(std::list<std::pair<int, int> > pair_lst);
+        void Compare(std::list<std::pair<int, int> > pair_lst);
+        void Binary(std::list<int>& big, std::list<int>& small);
+        void printList(std::list<int> lst);
+        void printPairs(std::list<std::pair<int, int> > pair_lst);
 };
 
 #endif

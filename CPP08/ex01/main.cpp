@@ -75,5 +75,37 @@ int main(void)
         }
         std::cout << "------------------------------------" << std::endl;
     }
+    {
+        std::cout << "------------------------------------" << std::endl;
+        try
+        {
+            Span sp = Span(10000);
+
+            sp.addNumber(1, 10000);
+
+            std::cout << sp.shortestSpan() << std::endl;
+            std::cout << sp.longestSpan() << std::endl;
+        }
+        catch (std::exception &exc)
+        {
+            std::cerr << exc.what() << std::endl;
+        }  
+    }
+    {
+        std::cout << "------------------------------------" << std::endl;
+        try
+        {
+            Span sp = Span(1000);
+
+            sp.addNumber(0, 10000);
+
+            std::cout << sp.shortestSpan() << std::endl;
+            std::cout << sp.longestSpan() << std::endl;
+        }
+        catch (std::exception &exc)
+        {
+            std::cerr << exc.what() << std::endl;
+        }  
+    }
     return (0);
 }

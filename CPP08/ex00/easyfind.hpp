@@ -7,14 +7,16 @@
 template <typename T>
 void easyfind(T &t, int i)
 {   
-    size_t j = 0;
-    for (;j < (size_t)t.size(); j++)
+    typename T::iterator it = t.begin();
+    int k = 0;
+    for (; it != t.end(); it++)
     {
-        if (t[j] == i)
+        if (*it == i)
             break ;
+        k++;
     }
-    if (j != t.size())
-        std::cout << "index: " << j << std::endl;
+    if (it != t.end())
+        std::cout << "index: " << k << std::endl;
     else
         throw (std::logic_error("Not Found"));
 }

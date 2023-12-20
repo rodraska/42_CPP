@@ -7,7 +7,7 @@ int main(void)
         {
             std::vector<int> vec;
             for (int i = 0; i < 5; i++)
-            vec.push_back(i);
+                vec.push_back(i);
             ::easyfind(vec, 3);
         }
         catch (std::exception &exc)
@@ -20,7 +20,7 @@ int main(void)
         {
             std::vector<int> vec;
             for (int i = 0; i < 5; i++)
-            vec.push_back(i);
+                vec.push_back(i);
             ::easyfind(vec, 7);
         }
         catch (std::exception &exc)
@@ -28,6 +28,5 @@ int main(void)
             std::cout << exc.what() << std::endl;
         }
     }
-
     return (0);
 }

@@ -34,37 +34,59 @@ void Span::addNumber(int nbr)
         throw (VecFullException());
 }
 
+void Span::addNumber(int begin, int end)
+{
+    if (begin > end)
+        throw (NoNumbersException());
+    for (int i = begin; i <= end; i++)
+    {
+        if ((size_t)vec.size() != size)
+            vec.push_back(i);
+        else
+            throw (VecFullException());
+    }
+}
+
 size_t Span::shortestSpan()
 {
     if (vec.size() == 0)
         throw (NoNumbersException());
 
-    size_t s_span = std::abs(vec[0] - vec[1]);
+    std::vector<int> tmp = vec;
+    std::vector<int>::iterator tmp_it = vec.begin();
+    int first = *(tmp_it++);
+    int second = *tmp_it;
+    size_t s_span = std::abs(first - second);
 
-    for(size_t i = 0; i < vec.size() - 1; i++)
+    for(std::vector<int>::iterator out_it = vec.begin(); out_it != vec.end(); out_it++)
     {
-        for (size_t j = i + 1; j < vec.size(); j++)
+        std::vector<int>::iterator inn_it = out_it;
+        inn_it++;
+        for (; inn_it != vec.end(); ++inn_it)
         {
-            if ((size_t)::abs(vec[i] - vec[j]) < s_span)
-                s_span = std::abs(vec[i] - vec[j]);
+            if ((size_t)std::abs((*out_it) - (*inn_it)) < s_span)
+                s_span = std::abs((*out_it) - (*inn_it));
         }
     }
     return (s_span);
 }
+
 
 size_t Span::longestSpan()
 {
     if (vec.size() == 0)
         throw (NoNumbersException());
     
-    size_t l_span = std::abs(vec[0] - vec[1]);
+    size_t l_span = 0;
 
-    for(size_t i = 0; i < vec.size() - 1; i++)
+    for(std::vector<int>::iterator out_it = vec.begin(); out_it != vec.end(); out_it++)
     {
-        for (size_t j = i + 1; j < vec.size(); j++)
+        std::vector<int>::iterator inn_it = out_it;
+        inn_it++;
+        for (; inn_it != vec.end(); ++inn_it)
         {
-            if ((size_t)::abs(vec[i] - vec[j]) > l_span)
-                l_span = std::abs(vec[i] - vec[j]);
+            if ((size_t)std::abs((*out_it) - (*inn_it)) > l_span)
+                l_span = std::abs((*out_it) - (*inn_it));
         }
     }
     return (l_span);

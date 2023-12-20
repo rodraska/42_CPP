@@ -1,5 +1,9 @@
 #include "PmergeMe.hpp"
 
+PmergeMe::PmergeMe() {}
+
+PmergeMe::~PmergeMe() {}
+
 int ft_stoi(std::string str)
 {
     int num = 0;
@@ -19,6 +23,37 @@ bool checkInt(std::string str)
     return (true);
 }
 
+int findPair(int value, std::list<std::pair<int, int> > pair_lst)
+{
+    int result;
+
+    for (std::list<std::pair<int, int> >::iterator it = pair_lst.begin(); it != pair_lst.end(); it++)
+    {
+        result = (value == it->first) ? it->second : (value == it->second) ? it->first : -2;
+        if (result != 2)
+            return (result);   
+    }
+    return (result);
+}
+
+bool checkRepeat(const std::list<int>& lst)
+{
+    bool result;
+
+    for (std::list<int>::const_iterator out_it = lst.begin(); out_it != --lst.end(); out_it++)
+    {
+        std::list<int>::const_iterator inn_it = out_it;
+        inn_it++;
+        for (; inn_it != lst.end(); ++inn_it)
+        {
+            result = (*inn_it == *out_it ? false : true);
+            if (result == false)
+                return (result);
+        }
+    }
+    return (result);
+}
+
 void PmergeMe::Parse(int ac, char **av)
 {
     std::string token;
@@ -34,30 +69,84 @@ void PmergeMe::Parse(int ac, char **av)
             return ;
         }
     }
+    if (!checkRepeat(X))
+    {
+        std::cout << "Repeated Arguments" << std::endl;
+        return ;
+    }
+    Divide(X);
 }
 
-void PmergeMe::Divide()
+void PmergeMe::Divide(std::list<int> lst)
 {
-    std::list<int>::iterator it = X.begin();
-    while (it != X.end())
+    std::list<std::pair<int, int> > pair_lst;
+    int first;
+    int second;
+
+    std::list<int>::iterator it = lst.begin();
+    while (it != lst.end())
     {
-        if (std::next(it) != X.end())
+        first = *(it++);
+        if (std::distance(it, lst.end()) > 0)
         {
-            int arr[2] = {*it, *std::next(it)};
-            pairs.push_back(arr);
+            second = *(it++);
+            pair_lst.push_back(std::make_pair(first, second));
         }
-        it++;
-        it++;
+        else
+            pair_lst.push_back(std::make_pair(first, -1));    
+    }
+    Swap(pair_lst);
+    //Compare(pair_lst);
+}
+
+void PmergeMe::Swap(std::list<std::pair<int, int> > pair_lst)
+{
+    printPairs(pair_lst);
+    for (std::list<std::pair<int,int> >::iterator it = pair_lst.begin(); it !=pair_lst.end(); it++)
+        (it->first > it->second ? std::swap(it->first, it->second) : void());
+    printPairs(pair_lst);
+}
+
+void PmergeMe::Compare(std::list<std::pair<int, int> > pair_lst)
+{
+    std::list<int> big;
+    std::list<int> small;
+    for (std::list<std::pair<int,int> >::iterator it = pair_lst.begin(); it !=pair_lst.end(); it++)
+        (it->first > it->second ? (big.push_back(it->first), small.push_back(it->second)) : (big.push_back(it->second), small.push_back(it->first)));
+    if (big.size() > 2)
+        Divide(big);
+    else
+    {   (big.front() > big.back() ? std::iter_swap(big.begin(), --big.end()) : void());
+        int pair = findPair(big.front(), pair_lst);
+        big.push_front(pair);
+        small.remove(pair);
+        Binary(big, small);
     }
 }
 
-void PmergeMe::Print(std::list<int> lst)
+void PmergeMe::Binary(std::list<int>& big, std::list<int>& small)
+{
+    
+    std::list<int> copy_big = big;
+    while (small.size() != 0)
+    {
+        std::list<int>::iterator it = copy_big.begin();
+        size_t distance = std::distance(copy_big.begin(), copy_big.end()) / 2;
+        for (size_t i = 0; i < distance; i++)
+            it++;
+    }
+}
+
+void PmergeMe::printList(std::list<int> lst)
 {
     for (std::list<int>::iterator it = lst.begin(); it != lst.end(); it++)
         std::cout << *it << std::endl;
+    std::cout << "--------------------------" << std::endl;
 }
 
-std::list<int> PmergeMe::getList(std::string str)
+void PmergeMe::printPairs(std::list<std::pair<int, int> > pair_lst)
 {
-    return std::list<int>();
+    for (std::list<std::pair<int, int> >::iterator it = pair_lst.begin(); it != pair_lst.end(); it++)
+        std::cout << it->first << " " << it->second << std::endl;
+    std::cout << "--------------------------" << std::endl;
 }
