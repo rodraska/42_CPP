@@ -76,7 +76,7 @@ int checkConditions(std::vector<std::string> tokens)
         std::cout << "Error: not a positive number." << std::endl;
         return (0);
     }
-    else if (d > 2147483647.0)
+    else if (d > 1000.0)
     {
         std::cout << "Error: too large a number." << std::endl;
         return (0);

@@ -15,6 +15,12 @@ class RPN
         ~RPN();
 
         void Calc();
+
+        class ErrorException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
 };
 
 #endif

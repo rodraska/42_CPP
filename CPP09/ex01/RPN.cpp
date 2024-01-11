@@ -28,12 +28,16 @@ void RPN::Calc()
     int first;
     int second;
 
+    if(_input.length() == 0)
+        throw (RPN::ErrorException());
     for (size_t i = 0; i < (size_t)_input.length(); i++)
     {
         if (checkDigit(_input[i]))
             _stk.push(_input[i] - 48);
         else if (checkOperator(_input[i]))
         {
+            if (_stk.size() < 1)
+                throw (RPN::ErrorException());
             second = _stk.top();
             _stk.pop();
             first = _stk.top();
@@ -48,10 +52,12 @@ void RPN::Calc()
                 _stk.push(first / second);
         }
         else if (_input[i] != 32)
-        {
-            std::cout << "Error" << std::endl;
-            return ;
-        }
+            throw (RPN::ErrorException());
     }
     std::cout << _stk.top() << std::endl;
+}
+
+const char* RPN::ErrorException::what() const throw()
+{
+    return ("Error");
 }

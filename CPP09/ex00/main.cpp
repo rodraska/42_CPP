@@ -2,23 +2,16 @@
 
 int main(int ac, char **av)
 {
-    if (ac == 2)
+    try
     {
-        try
-        {
+        if (ac == 2)
             ft_btc(av[1]);
-        }
-        catch (const MyCustomException& exc)
-        {
-            std::cerr << exc.what() << std::endl << std::flush;
-        }
+        else
+            throw (MyCustomException("Error: could not open file"));
     }
-    else
-        std::cerr << "Bad Arguments" << std::endl;
-    /* (void)ac;
-    (void)av;
-    std::vector<std::string> vec = getData("2003-06-08");
-    std::cout << "vec[0]: " << vec[0] << std::endl;
-    std::cout << "vec[1]: " << vec[1] << std::endl; */
+    catch (std::exception &exc)
+    {
+        std::cerr << exc.what() << std::endl << std::flush;
+    }
     return (0);
 }

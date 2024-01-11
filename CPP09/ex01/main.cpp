@@ -2,10 +2,18 @@
 
 int main(int ac, char **av)
 {
-    if (ac == 2)
+    try
     {
-        RPN rpn(av[1]);
-        rpn.Calc();
+        if (ac == 2)
+        {
+            RPN rpn(av[1]);
+            rpn.Calc();
+        }
+        else
+            throw (RPN::ErrorException());
     }
-        
+    catch (std::exception &exc)
+    {
+        std::cerr << exc.what() << std::endl;
+    }     
 }
